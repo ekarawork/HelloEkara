@@ -18,9 +18,10 @@ connectDatabase();
 
 var app = express();
 
+
 const allowedOrigins = [
   "http://localhost:3000",
-  process.env.FRONTEND_URL,
+  "https://helloekara.in",
 ];
 
 app.use(
@@ -47,6 +48,7 @@ app.use(
     ],
   })
 );
+
 
 
 app.set("views", path.join(__dirname, "views"));
