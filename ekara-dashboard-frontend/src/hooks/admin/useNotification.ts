@@ -67,9 +67,16 @@ const useNotification = () => {
         const rows =
           response?.data?.rows || [];
 
-        const responsePagination =
-          response?.data?.pagination;
+const responsePagination = response?.data;
 
+if (responsePagination) {
+  setPagination({
+    count: responsePagination.count,
+    page: responsePagination.page,
+    limit: responsePagination.limit,
+    totalPages: responsePagination.totalPages,
+  });
+}
         setNotifications(rows);
 
         if (responsePagination) {
@@ -146,10 +153,7 @@ const useNotification = () => {
            */
 
           const response =
-            await notificationService
-              .getUnreadNotifications(
-                query
-              );
+            await notificationService.getUnreadNotifications();
 
           const unreadRows =
             response?.data || [];

@@ -9,6 +9,7 @@ import {
   MarkNotificationAsReadResponse,
   MarkAllNotificationsAsReadResponse,
   DeleteNotificationResponse,
+  MarkNotificationAsUnreadResponse,
 } from "@/src/types/admin/notification.types";
 
 
@@ -92,7 +93,20 @@ const markNotificationAsRead = async (
   return response.data;
 };
 
+/* =========================================================
+   MARK NOTIFICATION AS UNREAD
+========================================================= */
 
+const markNotificationAsUnread = async (
+  uuid: string
+): Promise<MarkNotificationAsUnreadResponse> => {
+  const response =
+    await axiosInstance.patch<MarkNotificationAsUnreadResponse>(
+      `/admin/notifications/${uuid}/unread`
+    );
+
+  return response.data;
+};
 /* =========================================================
    MARK ALL NOTIFICATIONS AS READ
 ========================================================= */
@@ -136,6 +150,7 @@ const notificationService = {
   markNotificationAsRead,
   markAllNotificationsAsRead,
   deleteNotification,
+  markNotificationAsUnread,
 };
 
 export default notificationService;

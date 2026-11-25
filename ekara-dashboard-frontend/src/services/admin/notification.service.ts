@@ -55,6 +55,17 @@ const markNotificationAsRead = async (
   );
 };
 
+/* =========================================================
+   MARK NOTIFICATION AS UNREAD
+========================================================= */
+
+const markNotificationAsUnread = async (
+  uuid: string
+) => {
+  return await notificationApi.markNotificationAsUnread(
+    uuid
+  );
+};
 
 /* =========================================================
    MARK ALL NOTIFICATIONS AS READ
@@ -88,6 +99,7 @@ const notificationService = {
   getUnreadNotifications,
   getUnreadNotificationCount,
   markNotificationAsRead,
+  markNotificationAsUnread,
   markAllNotificationsAsRead,
   deleteNotification,
 };

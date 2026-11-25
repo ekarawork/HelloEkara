@@ -138,6 +138,11 @@ export interface MarkNotificationAsReadResponse {
   data: Notification;
 }
 
+export interface MarkNotificationAsUnreadResponse {
+  success: boolean;
+  message?: string;
+  data: Notification;
+}
 
 /* =========================================================
    MARK ALL AS READ RESPONSE
